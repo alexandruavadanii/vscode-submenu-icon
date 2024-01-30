@@ -17,8 +17,37 @@
         "command": "vscode-submenu-icon.helloWorld",
         "title": "Hello World"
       }
-    ]
+    ],
+    "submenus": [
+      {
+        "id": "customSubmenu",
+        "label": "Some custom submenu",
+        "icon": "$(squirrel)"
+      }
+    ],
+    "menus": {
+      "customSubmenu": [
+        {
+        "command": "vscode-submenu-icon.helloWorld"
+        }
+      ],
+      "view/title": [
+        {
+          "submenu": "customSubmenu",
+          "group": "navigation"
+        }
+      ],
+      "multiDiffEditor/resource/title": [
+        {
+          "submenu": "customSubmenu",
+          "group": "navigation"
+        }
+      ]
+    }
   },
+  "enabledApiProposals": [
+    "contribMultiDiffEditorMenus"
+  ],
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
